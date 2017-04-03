@@ -1,0 +1,112 @@
+<html>
+    <head>
+	<title>Linkers</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/skel.min.js"></script>
+	<script src="js/skel-layers.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="js/init.js"></script>
+	<script src="js/index.js"></script>
+	
+	<script>
+	 $( function() {
+	     $( "#slider-range" ).slider({
+		 range: true,
+		 min: 0,
+		 max: 500,
+		 values: [ 75, 300 ],
+		 slide: function( event, ui ) {
+		     $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		 }
+	     });
+	     $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+				 " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+	 } );
+	</script>
+	
+	<noscript>
+	    <link rel="stylesheet" href="css/skel.css" />
+	    <link rel="stylesheet" href="css/style.css" />
+	    <link rel="stylesheet" href="css/style-xlarge.css" />
+	</noscript>
+    </head>
+
+    <body id="top">
+
+	<!-- Header -->
+	<header id="header" class="skel-layers-fixed">
+	    <h1><a href="#">Linkers</a></h1>
+	    <nav id="nav">
+		<ul>
+		    <li><a href="index.html">Home</a></li>
+		    <!-- <li><a href="left-sidebar.html">Left Sidebar</a></li>
+			 <li><a href="right-sidebar.html">Right Sidebar</a></li>
+			 <li><a href="no-sidebar.html">No Sidebar</a></li> -->
+		    <li>
+			<a href="#" id="signupBtn" class="button special">Sign Up</a>
+		    </li>
+
+		    <div id="signup-modal" class="modal">
+
+			<div class="modal-content">
+			    <span class="close">&times;</span>
+			    <h2>Enter your email </h2>
+			    <form>
+				<input type="email" name="email" placeholder="Email"><br>
+				<input type="submit" class="button special" value="Submit">
+			    </form>
+			</div>
+		    </div>
+		    
+		</ul>
+	    </nav>
+	</header>
+
+	<form>
+
+	    Gender:
+	    <select style="width:50%">
+		<option value="Male">Male</option>
+		<option value="Female">Female</option>
+		<option value="Other">Other</option>
+	    </select>
+	    
+	    How old are they?
+	    <select style="width:50%">
+		<option value="Less than 10">Less than 10</option>
+		<option value="11-16">11-16</option>
+		<option value="17-24">17-24</option>
+		<option value="25-35">25-35</option>
+		<option value="36-64">35-64</option>
+		<option value="65+">65+</option>
+	    </select>
+
+	    Who is it for?
+	    <select style="width:50%">
+		<option value="Less than 10">Acquitance</option>
+		<option value="11-13">Friend</option>
+		<option value="14-18">Significant Other</option>
+	    </select>
+
+	    Price Range <br>
+	    Min
+	    <input type="number" name="min-price">
+	    <br>
+	    Max
+	    <input type="number" name="max-price">
+
+	    <br>
+	    
+	    <br>
+	    List the Hobbies:
+	    <input type="text" name="hobbies">
+
+	    <br>
+	    <input type="Submit" class="button special" value="Submit">
+	</form>
+
+</html>
