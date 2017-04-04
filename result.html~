@@ -11,10 +11,10 @@
 	<script src="js/init.js"></script>
 		
 	<noscript>
-	    <!-- <link rel="stylesheet" href="css/skel.css" /> -->
-	    <!-- <link rel="stylesheet" href="css/style.css" /> -->
-	    <!-- <link rel="stylesheet" href="css/style-xlarge.css" /> -->
-	    <link type="text/css" rel="stylesheet" href="css/form.css" />
+	    <link rel="stylesheet" href="css/skel.css" />
+	    <link rel="stylesheet" href="css/style.css" />
+	    <link rel="stylesheet" href="css/style-xlarge.css" />
+	    
 	</noscript>
 
 	<style>
@@ -23,53 +23,9 @@
 	     position: fixed; 
 	     overflow-y: scroll;
 	     width: 100%;
+	     padding-left: 5%; 
 	 }
 	 
-	 input[type=number]::-webkit-inner-spin-button, 
-	 input[type=number]::-webkit-outer-spin-button { 
-	     -webkit-appearance: none; 
-	     margin: 0; 
-	 }
-
-	 input[type=number] {
-	     -moz-appearance:textfield;
-	 }
-	 
-	 form {
-	     padding-left: 20%;
-	     padding-top:10%;
-	 }
-	 
-	 .mad-libs {
-	     width:50%;
-	 }
-
-	 .mad-libs label {
-	     white-space: nowrap;
-	     padding: 0 0 .5em;
-	     
-	     display: -moz-inline-stack;
-	     display: inline-block;
-	     vertical-align: top;
-	     zoom: 1;
-	     *display: inline;
-	 }
-	 .mad-libs input {
-	     font: inherit;
-	     background: transparent;
-	     border: none;
-	     border-bottom: 1px solid #111;
-	     outline: 0;
-	     display: block;
-	 }
-	 .mad-libs label span {
-	     font-size: .8em;
-	     line-height: 1em;
-	     opacity: .7;
-	     filter: alpha(opacity = 70);
-	     padding-left:30%;
-	 }
-
 	</style>
 
     </head>
@@ -104,44 +60,43 @@
 		</ul>
 	    </nav>
 	</header>
-	<div>
-	    <form action="" method="get" accept-charset="utf-8">
-		<p class="mad-libs">
-		    I want to get a gift for 
-		    <label>
-			<input type="text" name="name" value="" />
-			<span>name</span>
-		    </label>,
-		    who is my
-		    <label>
-			<select>
-			    <option value="significat other">SO</option>
-			    <option value="friend">Friend</option>
-			    <option value="Acquitance">Acquitance</option>
-			</select> 
-			<span>relationship</span>
-		    </label><br>
-		    My friend is a 
-		    <label>
-			<input type="text" name="gender" value="" />
-			<span>gender</span>
-		    </label>
-		    , aged
-		    <label>
-			<input type="number" name="age" value="" />
-			<span>age</span>
-		    </label>. <br>
-		    Some of the hobbies are 
-		    <label>
-			<input type="name" name="hobbies" value="" />
-			<span>hobbies</span>
-		    </label>
-		</p>
-		
-		<p><input class="button special" type="submit" value="submit" /></p>
-		
-	    </form>
-	</div>
 
+	<div class="row">
+	    <div class="col-sm-4 col-lg-4 col-md-4">
+		Item 1 goes here
+	    </div>
+
+	    <div class="col-sm-4 col-lg-4 col-md-4">
+		Item 2 goes here
+	    </div>
+
+	    <div class="col-sm-4 col-lg-4 col-md-4">
+		Item 3 goes here
+	    </div>
+
+	    <div class="col-sm-4 col-lg-4 col-md-4">
+		Item 4 goes here
+	    </div>
+
+	    <div class="col-sm-4 col-lg-4 col-md-4">
+		Item 5 goes here
+	    </div>
+
+	    <div class="col-sm-4 col-lg-4 col-md-4">
+		Item 6 goes here
+	    </div>
+
+	    <div class="col-sm-4 col-lg-4 col-md-4">
+		Item 7 goes here
+	    </div>
+
+	    <div class="col-sm-4 col-lg-4 col-md-4">
+		Item 8 goes here
+	    </div>
+
+
+	    
+	</div>
+	
     </body>	
 </html>
