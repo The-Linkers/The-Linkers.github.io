@@ -1,3 +1,16 @@
+<?php
+	include ("include.php");
+
+	if ($stmt = $mysqli->prepare("select * from sex)) {
+		$stmt->execute();
+		$stmt->bind_result($gender);
+		while($stmt->fetch()) {
+			echo $gender;	
+		}
+	}
+?>
+
+
 <html>
     <head>
 	<title>Linkers</title>
@@ -27,7 +40,6 @@
 	     -webkit-appearance: none; 
 	     margin: 0; 
 	 }
-
 	 input[type=number] {
 	     -moz-appearance:textfield;
 	 }
@@ -40,7 +52,6 @@
 	 .mad-libs {
 	     width:50%;
 	 }
-
 	 .mad-libs label {
 	     white-space: nowrap;
 	     padding: 0 0 .5em;
@@ -66,7 +77,6 @@
 	     filter: alpha(opacity = 70);
 	     padding-left:30%;
 	 }
-
 	</style>
 
     </head>
