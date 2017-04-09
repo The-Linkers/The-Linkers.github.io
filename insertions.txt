@@ -1,0 +1,56 @@
+--
+-- Dumping data for table `gifts`
+-- 
+
+INSERT INTO gifts(category, price, link)VALUES('Music','99.95','https://www.amazon.com/Bose-SoundTrue-around-ear-headphones-II/dp/B0117RFX38/ref=sr_1_3?s=aht&ie=UTF8&qid=1491667619&sr=1-3&refinements=p_n_feature_four_browse-bin%3A12097501011');
+INSERT INTO gifts(category, price, link)VALUES('Music','39.99','https://www.amazon.com/Sennheiser-II-Precision-Enhanced-Earbuds/dp/B001EZYMF4/ref=lp_12097478011_1_10?s=aht&ie=UTF8&qid=1491667765&sr=1-10');
+INSERT INTO gifts(category, price, link)VALUES('Music','31.82','https://www.amazon.com/Monster-Beats-Ibeats-Headphones-Earphones/dp/B0148FSV62/ref=lp_12097478011_1_12?s=aht&ie=UTF8&qid=1491667765&sr=1-12');
+INSERT INTO gifts(category, price, link)VALUES('Music','129.00','https://www.amazon.com/Bose-SoundTrue-Ultra-ear-headphones/dp/B0117RFYDW/ref=lp_12097478011_1_22?s=aht&ie=UTF8&qid=1491667765&sr=1-22');
+INSERT INTO gifts(category, price, link)VALUES('Music','33.91','https://www.amazon.com/Beats-Dr-Dre-Headphones-packaging/dp/B01MA2AO5U/ref=sr_1_3?s=aht&ie=UTF8&qid=1491668006&sr=1-3&refinements=p_89%3ABeats');
+INSERT INTO gifts(category, price, link)VALUES('Sports','13.90','https://www.amazon.com/UMTELE-Milanese-Stainless-Bracelet-Fitness/dp/B01LX0ZCGT/ref=lp_11051400011_1_10?s=outdoor-recreation&ie=UTF8&qid=1491668272&sr=1-10');
+INSERT INTO gifts(category, price, link)VALUES('Sports','23.00','https://www.amazon.com/Rtic-Stainless-Steel-Bottle-64oz/dp/B01GS9MUFY/ref=lp_11051400011_1_1?s=outdoor-recreation&ie=UTF8&qid=1491668272&sr=1-1');
+INSERT INTO gifts(category, price, link)VALUES('Sports','24.99','https://www.amazon.com/gp/product/B00LTZ9GR8/ref=s9_acsd_hps_bw_c_x_3_w?ie=UTF8&pd_rd_r=7FM44J500DTVKYQ89N0V&pd_rd_w=iFl2s&pd_rd_wg=LKjKm&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-9&pf_rd_r=7FM44J500DTVKYQ89N0V&pf_rd_r=7FM44J500DTVKYQ89N0V&pf_rd_t=101&pf_rd_p=40d24746-3d59-4678-9a94-c9964ee352e1&pf_rd_p=40d24746-3d59-4678-9a94-c9964ee352e1&pf_rd_i=2581741011');
+INSERT INTO gifts(category, price, link)VALUES('Self-Care','75.00','https://www.amazon.com/BURBERRY-Touch-Men-Eau-Toilette/dp/B00DUVMGL2/ref=lp_7175563011_1_3_s_it?s=luxury-beauty&ie=UTF8&qid=1491668839&sr=1-3&th=1');
+INSERT INTO gifts(category, price, link)VALUES('Self-Care','54.00','https://www.amazon.com/Calvin-Klein-euphoria-Eau-Parfum/dp/B000BIPMC2/ref=sr_1_2_s_it?s=luxury-beauty&ie=UTF8&qid=1491668924&sr=1-2&refinements=p_n_target_audience_browse-bin%3A405781011&th=1');
+INSERT INTO gifts(category, price, link)VALUES('Reading','49.99','https://www.amazon.com/dp/B01DFKC2SO/ref=fs_ods_fs_aucc_bt_t2');
+INSERT INTO gifts(category, price, link)VALUES('Reading','129.99','https://www.amazon.com/Amazon-Tap-Portable-Wireless-Bluetooth-Speaker-with-WiFi-Alexa/dp/B01BH83OOM/ref=sr_1_4?s=amazon-devices&ie=UTF8&qid=1491669456&sr=1-4&keywords=music');
+INSERT INTO gifts(category, price, link)VALUES('Reading','18.00','https://www.amazon.com/gp/product/1540591735/ref=s9_acsd_al_bw_c_x_1_w?ie=UTF8&pd_rd_r=B23ZRXSTTM4QY14F42ZR&pd_rd_w=2GiHU&pd_rd_wg=bc1ci&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-7&pf_rd_r=B23ZRXSTTM4QY14F42ZR&pf_rd_r=B23ZRXSTTM4QY14F42ZR&pf_rd_t=101&pf_rd_p=780f80bc-1693-493d-955d-ccfc9b7c6cfb&pf_rd_p=780f80bc-1693-493d-955d-ccfc9b7c6cfb&pf_rd_i=283155');
+INSERT INTO gifts(category, price, link)VALUES('Reading','16.52','https://www.amazon.com/gp/product/0451493583/ref=s9_acsd_al_bw_c_x_2_w?ie=UTF8&pd_rd_r=4YPPBY8KCNFYBMDQHBYW&pd_rd_w=XxY1f&pd_rd_wg=03I63&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=4YPPBY8KCNFYBMDQHBYW&pf_rd_r=4YPPBY8KCNFYBMDQHBYW&pf_rd_t=101&pf_rd_p=a007a3cf-5536-4814-be9c-a96c47c29c5a&pf_rd_p=a007a3cf-5536-4814-be9c-a96c47c29c5a&pf_rd_i=390919011');
+INSERT INTO gifts(category, price, link)VALUES('Reading','16.93','https://www.amazon.com/New-York-2140-Stanley-Robinson/dp/031626234X/ref=pd_sim_14_5?_encoding=UTF8&pd_rd_i=031626234X&pd_rd_r=HJK4A8K78VB8KG6XGV9V&pd_rd_w=j8j6i&pd_rd_wg=SplXI&psc=1&refRID=HJK4A8K78VB8KG6XGV9V');
+INSERT INTO gifts(category, price, link)VALUES('Reading','8.48','https://www.amazon.com/2312-Kim-Stanley-Robinson/dp/0316098116/ref=pd_sim_14_2?_encoding=UTF8&pd_rd_i=0316098116&pd_rd_r=9Z9T46KNZ1AMZ1HFCN31&pd_rd_w=oqXVn&pd_rd_wg=GPRd2&psc=1&refRID=9Z9T46KNZ1AMZ1HFCN31');
+INSERT INTO gifts(category, price, link)VALUES('Reading','10.68','https://www.amazon.com/Wastelands-Apocalypse-John-Joseph-Adams/dp/1597801054/ref=pd_sim_14_13?_encoding=UTF8&pd_rd_i=1597801054&pd_rd_r=GRB5G2A8RXDQ2YSFE5FD&pd_rd_w=B3zwg&pd_rd_wg=3cNce&psc=1&refRID=GRB5G2A8RXDQ2YSFE5FD');
+INSERT INTO gifts(category, price, link)VALUES('Reading','15.67','https://www.amazon.com/Hillbilly-Elegy-Memoir-Family-Culture/dp/0062300547/ref=zg_bs_tab_pd_bsar_1?_encoding=UTF8&psc=1&refRID=G59ZSZN82SJTZHP4SMSG');
+INSERT INTO gifts(category, price, link)VALUES('Reading','11.74','https://www.amazon.com/Gentleman-Moscow-Novel-Amor-Towles/dp/0670026190/ref=pd_sim_14_5?_encoding=UTF8&pd_rd_i=0670026190&pd_rd_r=5FV3GVW4KAN17ZDE3YHG&pd_rd_w=mA6ar&pd_rd_wg=80Hc3&psc=1&refRID=5FV3GVW4KAN17ZDE3YHG');
+INSERT INTO gifts(category, price, link)VALUES('Cooking','36.28','https://www.amazon.com/gp/product/B0176PW6BC/ref=cm_gf_ss_d_d_l_b0_p0_mg_GROCERY');
+INSERT INTO gifts(category, price, link)VALUES('Cooking','19.99','https://www.amazon.com/Cookies-Candies-Variety-Sampler-Assortment/dp/B013KTYFYO/ref=pd_sim_325_4?_encoding=UTF8&pd_rd_i=B013KTYFYO&pd_rd_r=N9M0P96NEXXNFFRJCQ8V&pd_rd_w=3aq3W&pd_rd_wg=UCLIZ&refRID=N9M0P96NEXXNFFRJCQ8V&th=1');
+INSERT INTO gifts(category, price, link)VALUES('Cooking','11.25','https://www.amazon.com/Hersheys-Chocolate-Variety-Count-Ounce/dp/B005CUK20Q/ref=pd_sim_325_6?_encoding=UTF8&pd_rd_i=B005CUK20Q&pd_rd_r=6152J4XP2979MEC0GGTS&pd_rd_w=9H2ug&pd_rd_wg=Cv6qB&refRID=6152J4XP2979MEC0GGTS&th=1');
+INSERT INTO gifts(category, price, link)VALUES('Cooking','46.99','https://www.amazon.com/Hersheys-Assortment-Raising-Reeses-Caramello/dp/B004FHC9I0/ref=pd_sim_325_14?_encoding=UTF8&pd_rd_i=B004FHC9I0&pd_rd_r=1SENMTPPNZQSF8SRNJEH&pd_rd_w=nqQVQ&pd_rd_wg=cCwcf&refRID=1SENMTPPNZQSF8SRNJEH&th=1');
+INSERT INTO gifts(category, price, link)VALUES('Cooking','34.19','https://www.amazon.com/Candy-Factory-Variety-Pack-Pieces/dp/B010GO3J7A/ref=pd_sim_325_9?_encoding=UTF8&pd_rd_i=B010GO3J7A&pd_rd_r=GY98ZMZXG8BMQRTF8GKJ&pd_rd_w=hUdf5&pd_rd_wg=uFRoa&psc=1&refRID=GY98ZMZXG8BMQRTF8GKJ');
+INSERT INTO gifts(category, price, link)VALUES('Cooking','24.22','https://www.amazon.com/gp/product/B00K2RY8GI/ref=s9_acsd_top_hd_bw_b16T43_c_x_2_w?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-5&pf_rd_r=09ZAHH9HDJBS0Y4WGM1Q&pf_rd_t=101&pf_rd_p=8ee62715-8d4a-55b8-8c45-6c8a220bd0d8&pf_rd_i=16318031');
+INSERT INTO gifts(category, price, link)VALUES('Cooking','19.80','https://www.amazon.com/K-Cup-Carousel-Holds-K-Cups-Black/dp/B003KRHDNC/ref=pd_sim_325_7?_encoding=UTF8&pd_rd_i=B003KRHDNC&pd_rd_r=5XE03TAHWRS4F7W2NR63&pd_rd_w=8jCUz&pd_rd_wg=P9SNW&psc=1&refRID=5XE03TAHWRS4F7W2NR63');
+INSERT INTO gifts(category, price, link)VALUES('Cooking','94.43','https://www.amazon.com/Keurig-K55-Single-Programmable-Coffee/dp/B018UQ5AMS/ref=pd_sim_79_2?_encoding=UTF8&pd_rd_i=B018UQ5AMS&pd_rd_r=T82JKDSNYWEP2D2C5TDW&pd_rd_w=QMmxU&pd_rd_wg=HFdGA&psc=1&refRID=T82JKDSNYWEP2D2C5TDW');
+INSERT INTO gifts(category, price, link)VALUES('Cooking','14.95','https://www.amazon.com/DeLonghi-Double-Walled-Espresso-Glasses/dp/B004MALMT2/ref=lp_367125011_1_3?s=kitchen&ie=UTF8&qid=1491670430&sr=1-3');
+INSERT INTO gifts(category, price, link)VALUES('Cooking','13.95','https://www.amazon.com/Changing-Constellation-Unemployed-Philosophers-Guild/dp/B00B7LUVZK/ref=lp_367125011_1_6?s=kitchen&ie=UTF8&qid=1491670430&sr=1-6');
+--
+-- Dumping data for table `relation`
+-- 
+
+INSERT INTO relation(relationship)VALUES('Significant Other');
+INSERT INTO relation(relationship)VALUES('Friend');
+INSERT INTO relation(relationship)VALUES('Acquaintance');
+
+--
+-- Dumping data for table `gender`
+-- 
+
+INSERT INTO sex (gender)VALUES('Female');
+INSERT INTO sex (gender)VALUES('Male');
+
+--
+-- Dumping data for table `hobbies`
+-- 
+INSERT INTO hobbies(category)VALUES('Music');
+INSERT INTO hobbies(category)VALUES('Sports');
+INSERT INTO hobbies(category)VALUES('Reading');
+INSERT INTO hobbies(category)VALUES('Cooking');
+INSERT INTO hobbies(category)VALUES('Self-Care');
