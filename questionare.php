@@ -104,7 +104,7 @@
 	    </nav>
 	</header>
 	<div>
-	    <form action="" method="get" accept-charset="utf-8">
+	    <form action="result.php" method="get" accept-charset="utf-8">
 		<p class="mad-libs">
 		    I want to get a gift for 
 		    <label>
@@ -113,16 +113,32 @@
 		    </label>,
 		    who is my
 		    <label>
-			<select>
-			    <option value="significat other">SO</option>
-			    <option value="friend">Friend</option>
-			    <option value="Acquitance">Acquitance</option>
+			<select name = "relationship">
+			    <?php
+					if ($stmt = $mysqli->prepare("select distinct relationship from relation order by relationship asc")) {
+						$stmt->execute();
+						$stmt->bind_result($relationship);
+						while($stmt->fetch()) {
+							echo "<option value='$relationship'>$relationship</option>\n";	
+						}
+					}
+				?>
 			</select> 
 			<span>relationship</span>
 		    </label><br>
 		    My friend is a 
 		    <label>
-			<input type="text" name="gender" value="" />
+		    <select name = "gender">
+			    <?php
+					if ($stmt = $mysqli->prepare("select distinct gender from sex order by gender asc")) {
+						$stmt->execute();
+						$stmt->bind_result($gender);
+						while($stmt->fetch()) {
+							echo "<option value='$gender'>$gender</option>\n";	
+						}
+					}
+				?>
+			</select> 
 			<span>gender</span>
 		    </label>
 		    , aged
@@ -132,7 +148,17 @@
 		    </label>. <br>
 		    Some of the hobbies are 
 		    <label>
-			<input type="name" name="hobbies" value="" />
+		    <select name = "category">
+			    <?php
+					if ($stmt = $mysqli->prepare("select distinct category from hobbies order by category asc")) {
+						$stmt->execute();
+						$stmt->bind_result($category);
+						while($stmt->fetch()) {
+							echo "<option value='$category'>$category</option>\n";	
+						}
+					}
+				?>
+			</select> 
 			<span>hobbies</span>
 		    </label><br>
 
