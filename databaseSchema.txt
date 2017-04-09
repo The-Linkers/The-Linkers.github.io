@@ -1,0 +1,28 @@
+-- HOBBIES
+create table hobbies(
+	category varchar(30),
+	PRIMARY KEY (category)
+);
+
+-- GIFTS
+create table gifts(
+	gid int NOT NULL AUTO_INCREMENT,
+	category varchar(100),
+	price int,
+	link varchar(255),
+	PRIMARY KEY (gid),
+	FOREIGN KEY (category) REFERENCES hobbies(category)
+);
+
+-- RELATION
+create table relation(
+	relationship varchar(50),
+	PRIMARY KEY (relationship)
+);
+
+-- GENDER
+create table sex(
+	gender varchar(50),
+	PRIMARY KEY (gender)
+);
+
