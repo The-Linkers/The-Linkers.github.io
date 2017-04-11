@@ -66,36 +66,52 @@
 	</header>
 
 	<div class="row" >
+            
+            Hello <?php echo $_POST["name"]; ?>!<br>
+	    Our relationship is <?php echo $_POST["relationship"]; ?>.
+	    The gender  is <?php echo $_POST["gender"]; ?>.
+	    Our age is <?php echo $_POST["age"]; ?>.
+	    Favorite hobby is <?php echo $_POST["category"]; ?>.
+
+	    <?php
+	    if ($stmt = $mysqli->prepare("select * from hobbies, weights, gifts where hobbies.category = $_POST['category'] and hobbies.")) {
+		$stmt->execute();
+		$stmt->bind_result($category);
+		while($stmt->fetch()) {
+		    echo "<option value='$category'>$category</option>\n";	
+		}
+	    }
+	    ?>
 	    
-	    <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="col-sm-4 col-lg-4 col-md-4">
 		<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQN6qTwsdFBUnBY46WmPctiDTL-nMJCdSRbVZ_567k7_d45A5RSryDKmgJQ"> <br>
 		Amazon Echo <br>
-		Price : $179.99 <br>
-		<a type="submit" class="button special" value="" href="https://www.amazon.com/Amazon-Echo-Bluetooth-Speaker-with-WiFi-Alexa/dp/B00X4WHP5E"> Buy here </a>
-	    </div>
+Price : $179.99 <br>
+            <a type="submit" class="button special" value="" href="https://www.amazon.com/Amazon-Echo-Bluetooth-Speaker-with-WiFi-Alexa/dp/B00X4WHP5E"> Buy here </a>
+            </div>
 
-	    <div class="col-sm-4 col-lg-4 col-md-4">
-		Item 2 goes here
-	    </div>
+            <div class="col-sm-4 col-lg-4 col-md-4">
+            Item 2 goes here
+            </div>
 
-	    <div class="col-sm-4 col-lg-4 col-md-4">
-		Item 3 goes here
-	    </div>
+            <div class="col-sm-4 col-lg-4 col-md-4">
+            Item 3 goes here
+            </div>
 
-	    <div class="col-sm-4 col-lg-4 col-md-4">
-		Item 4 goes here
-	    </div>
+            <div class="col-sm-4 col-lg-4 col-md-4">
+            Item 4 goes here
+            </div>
 
-	    <div class="col-sm-4 col-lg-4 col-md-4">
-		Item 5 goes here
-	    </div>
+            <div class="col-sm-4 col-lg-4 col-md-4">
+            Item 5 goes here
+            </div>
 
-	    <div class="col-sm-4 col-lg-4 col-md-4">
-		Item 6 goes here
-	    </div>
+            <div class="col-sm-4 col-lg-4 col-md-4">
+            Item 6 goes here
+            </div>
 
-	    <div class="col-sm-4 col-lg-4 col-md-4">
-		Item 7 goes here
+            <div class="col-sm-4 col-lg-4 col-md-4">
+            Item 7 goes here
 	    </div>
 
 	    <div class="col-sm-4 col-lg-4 col-md-4">

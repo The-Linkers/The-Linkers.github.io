@@ -104,9 +104,9 @@
 	    </nav>
 	</header>
 	<div>
-	    <form action="result.php" method="get" accept-charset="utf-8">
-		<p class="mad-libs">
-		    I want to get a gift for 
+         <form action="result.php" method="post" accept-charset="utf-8">
+         <p class="mad-libs">
+         I want to get a gift for 
 		    <label>
 			<input type="text" name="name" value="" />
 			<span>name</span>
@@ -148,16 +148,16 @@
 		    </label>. <br>
 		    Some of the hobbies are 
 		    <label>
-		    <select name = "category">
+			<select name = "category">
 			    <?php
-					if ($stmt = $mysqli->prepare("select distinct category from hobbies order by category asc")) {
-						$stmt->execute();
-						$stmt->bind_result($category);
-						while($stmt->fetch()) {
-							echo "<option value='$category'>$category</option>\n";	
-						}
-					}
-				?>
+			    if ($stmt = $mysqli->prepare("select distinct category from hobbies order by category asc")) {
+				$stmt->execute();
+				$stmt->bind_result($category);
+				while($stmt->fetch()) {
+				    echo "<option value='$category'>$category</option>\n";	
+				}
+			    }
+			    ?>
 			</select> 
 			<span>hobbies</span>
 		    </label><br>
@@ -175,9 +175,10 @@
 
 		</p>
 		
-		<p> <a class="button special" href="result.php" value="submit"> Submit</a></p>
+         <!--<p> <a class="button special" href="result.php" value="submit"> Submit</a></p> -->
+		<p> <input class="button special" value="Submit "type="submit"></p>
 		
-	    </form>
+         </form>
 	</div>
 
     </body>	
