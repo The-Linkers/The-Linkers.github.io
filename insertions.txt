@@ -54,3 +54,32 @@ INSERT INTO hobbies(category)VALUES('Sports');
 INSERT INTO hobbies(category)VALUES('Reading');
 INSERT INTO hobbies(category)VALUES('Cooking');
 INSERT INTO hobbies(category)VALUES('Self-Care');
+
+--
+-- Dumping data for table `rating`
+-- 
+INSERT INTO rating (gid)VALUES('1');
+INSERT INTO rating (gid)VALUES('2');
+INSERT INTO rating (gid)VALUES('3');
+INSERT INTO rating (gid)VALUES('4');
+INSERT INTO rating (gid)VALUES('5');
+INSERT INTO rating (gid)VALUES('6');
+INSERT INTO rating (gid)VALUES('7');
+INSERT INTO rating (gid)VALUES('8');
+INSERT INTO rating (gid)VALUES('31');
+INSERT INTO rating (gid)VALUES('32');
+INSERT INTO rating (gid)VALUES('33');
+INSERT INTO rating (gid)VALUES('34');
+INSERT INTO rating (gid)VALUES('35');
+INSERT INTO rating (gid)VALUES('36');
+INSERT INTO rating (gid)VALUES('37');
+INSERT INTO rating (gid)VALUES('38');
+INSERT INTO rating (gid)VALUES('39');
+INSERT INTO rating (gid)VALUES('40');
+INSERT INTO rating (gid)VALUES('41');
+INSERT INTO rating (gid)VALUES('42');
+INSERT INTO rating (gid)VALUES('43');
+INSERT INTO rating (gid)VALUES('44');
+INSERT INTO rating (gid)VALUES('45');
+INSERT INTO rating (gid)VALUES('46');
+INSERT INTO rating (gid)VALUES('47');
