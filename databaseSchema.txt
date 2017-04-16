@@ -25,4 +25,10 @@ create table sex(
 	gender varchar(50),
 	PRIMARY KEY (gender)
 );
-
+-- RATING
+create table rating(
+	gid int not null,
+	thumbUp int DEFAULT '0',
+	thumbDown int DEFAULT '0',
+	FOREIGN KEY (gid) REFERENCES gifts(gid)
+);
