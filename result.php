@@ -93,12 +93,8 @@ include ("include.php");
 	    $query = "SELECT gifts.category, gifts.price, gifts.link, gifts.gname, gifts.gpic from gifts NATURAL JOIN weights ORDER BY weights.{$weightname} DESC LIMIT 10";
 	    
 	    if ($stmt = $mysqli->prepare($query)) {
-
 		$stmt->execute();
 		$stmt->bind_result($giftcategory, $giftprice, $giftlink, $giftname, $giftpic);
-		/* $stmt->bind_result();
-		   $stmt->bind_result();
-		 */
 		while($stmt->fetch()) {
 		    echo "<div class='col-sm-4 col-lg-4 col-md-4'>
 		    <img src='$giftpic'> <br>
@@ -109,11 +105,10 @@ include ("include.php");
 		}
 	    }
 		}
-	?>	
+	?>		    
 		<input type="image" src="images/thumbUp.jpg" onclick="calc1()" style="width:42px;height:42px;border:0"/>
 		<input type="image" src="images/thumbDown.jpg" onclick="calc2()" style="width:42px;height:42px;border:0"/>
 		<div id="feedback"></div>
-	    
 	    
 	</div>
 	
