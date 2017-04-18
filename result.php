@@ -30,9 +30,15 @@ include ("include.php");
 	     width: 100%;
 	     padding-left: 5%; 
 	 }
-	 
-	</style>
 
+	 img
+	 {
+	     width: 200px;
+	     height: 150px;
+	     overflow: hidden;
+	 }
+	</style>
+	
     </head>
 
     <body id="top">
@@ -66,86 +72,47 @@ include ("include.php");
 	    </nav>
 	</header>
 	   
-
-    <input type="image" src="images/thumbUp.jpg" onclick="calc1()" style="width:42px;height:42px;border:0"/>
-    <input type="image" src="images/thumbDown.jpg" onclick="calc2()" style="width:42px;height:42px;border:0"/>
-    <div id="feedback"></div>
-	
-	<div class="row" >
-            
-            <!-- Hello <?php echo $_POST["name"]; ?>!<br>
-		 Our relationship is <?php echo $_POST["relationship"]; ?>.
-		 The gender  is <?php echo $_POST["gender"]; ?>.
-		 Our age is <?php echo $_POST["age"]; ?>.
-		 Favorite hobby is <?php echo $_POST["category"]; ?>.
-	       -->
-	    <?php
-	    $category = $_POST["category"];
-	    if ($stmt = $mysqli->prepare("select weight_name from hobbies where category = ?" )) {
-		$stmt->bind_param("s", $category);
-		$stmt->execute();
-		$stmt->bind_result($weightname);
-		while($stmt->fetch()) {
-		    echo $weightname;	
-		}
-
-		$query = "SELECT gifts.category, gifts.price, gifts.link from gifts NATURAL JOIN weights ORDER BY weights.{$weightname} DESC LIMIT 10";
-		
-		if ($stmt = $mysqli->prepare($query)) {
-
-		    $stmt->execute();
-		    $stmt->bind_result($giftcategory,$giftprice,$giftlink);
-		    /* $stmt->bind_result();
-		       $stmt->bind_result();
-		     */
-		    while($stmt->fetch()) {
-			echo $giftlink;
-			echo "<br>";
-		    }
-		}
-		
-		echo "Done querying";
+    <div class="row" >
+        
+        <!-- Hello <?php echo $_POST["name"]; ?>!<br>
+	     Our relationship is <?php echo $_POST["relationship"]; ?>.
+	     The gender  is <?php echo $_POST["gender"]; ?>.
+	     Our age is <?php echo $_POST["age"]; ?>.
+	     Favorite hobby is <?php echo $_POST["category"]; ?>.
+	   -->
+	<?php
+	$category = $_POST["category"];
+	if ($stmt = $mysqli->prepare("select weight_name from hobbies where category = ?" )) {
+	    $stmt->bind_param("s", $category);
+	    $stmt->execute();
+	    $stmt->bind_result($weightname);
+	    while($stmt->fetch()) {
+		//echo $weightname;	
 	    }
 
-	    ?>
-	    <!-- 
-		 <div class="col-sm-4 col-lg-4 col-md-4">
-		 <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQN6qTwsdFBUnBY46WmPctiDTL-nMJCdSRbVZ_567k7_d45A5RSryDKmgJQ"> <br>
-		 Amazon Echo <br>
-		 Price : $179.99 <br>
-		 <a type="submit" class="button special" value="" href="https://www.amazon.com/Amazon-Echo-Bluetooth-Speaker-with-WiFi-Alexa/dp/B00X4WHP5E"> Buy here </a>
-		 </div>
+	    $query = "SELECT gifts.category, gifts.price, gifts.link, gifts.gname, gifts.gpic from gifts NATURAL JOIN weights ORDER BY weights.{$weightname} DESC LIMIT 10";
+	    
+	    if ($stmt = $mysqli->prepare($query)) {
 
-		 <div class="col-sm-4 col-lg-4 col-md-4">
-		 Item 2 goes here
-		 </div>
-
-		 <div class="col-sm-4 col-lg-4 col-md-4">
-		 Item 3 goes here
-		 </div>
-
-		 <div class="col-sm-4 col-lg-4 col-md-4">
-		 Item 4 goes here
-		 </div>
-
-		 <div class="col-sm-4 col-lg-4 col-md-4">
-		 Item 5 goes here
-		 </div>
-
-		 <div class="col-sm-4 col-lg-4 col-md-4">
-		 Item 6 goes here
-		 </div>
-
-		 <div class="col-sm-4 col-lg-4 col-md-4">
-		 Item 7 goes here
-		 </div>
-
-		 <div class="col-sm-4 col-lg-4 col-md-4">
-		 Item 8 goes here
-		 </div>
-
-	       -->
-		
+		$stmt->execute();
+		$stmt->bind_result($giftcategory, $giftprice, $giftlink, $giftname, $giftpic);
+		/* $stmt->bind_result();
+		   $stmt->bind_result();
+		 */
+		while($stmt->fetch()) {
+		    echo "<div class='col-sm-4 col-lg-4 col-md-4'>
+		    <img src='$giftpic'> <br>
+		    $giftname<br>
+		    Price : $giftprice <br>
+		    <a href=$giftlink type= 'submit' class='button special'  target='_blank'> Buy here </a>
+		    </div>";
+		}
+	    }
+		}
+	?>	
+		<input type="image" src="images/thumbUp.jpg" onclick="calc1()" style="width:42px;height:42px;border:0"/>
+		<input type="image" src="images/thumbDown.jpg" onclick="calc2()" style="width:42px;height:42px;border:0"/>
+		<div id="feedback"></div>
 	    
 	    
 	</div>
