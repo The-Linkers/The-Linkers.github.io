@@ -14,6 +14,7 @@ include ("include.php");
 	<script src="js/skel-layers.min.js"></script>
 	<script src="js/init.js"></script>
 	<script src="js/result-script.js"></script>
+	<script src="js/questionare.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	    	
 	<noscript>
 	    <link rel="stylesheet" href="css/skel.css" />
@@ -50,31 +51,25 @@ include ("include.php");
 	<header id="header" class="skel-layers-fixed">
 	    <h1><a href="index.html">Linkers</a></h1>
 	    <nav id="nav">
-		<ul>
-		    <li><a href="index.html">Home</a></li>
-		    <li>
-			<a href="#" id="signupBtn" class="button special">Sign Up</a>
-		    </li>
-
-		    <div id="signup-modal" class="modal">
-
-			<div class="modal-content">
-			    <span class="close">&times;</span>
-			    <h2>Enter your email </h2>
-			    <form>
-				<input type="email" name="email" placeholder="Email"><br>
-				<input type="submit" class="button special" value="Submit">
-			    </form>
-			</div>
-		    </div>
-		    
-		</ul>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="#" id="signupBtn" class="button special">Sign Up</a></li>
+				<div id="signup-modal" class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<h2>Enter your email </h2>
+						<form style="padding-top:0px; padding-left:0px;">
+							<input type="email" name="email" placeholder="Email"><br>
+							<input type="submit" class="button special" value="Submit">
+						</form>
+					</div>
+				</div> 
+			</ul>
 	    </nav>
 	</header>
 	
 	<div id = "userInfo">
-		Hello <?php echo $_POST["name"]; ?>!
-		The receiver is a <?php echo $_POST["relationship"]; ?> of yours.
+		Hello! The gift is for <?php echo $_POST["name"]; ?>, a <?php echo $_POST["relationship"]; ?> of yours.
 		Their gender: <?php echo $_POST["gender"]; ?>, age: <?php echo $_POST["age"]; ?>, and hobby: <?php echo $_POST["category"]; ?>.
 	</div>
 	<div class="row" style="padding-top:2%">
