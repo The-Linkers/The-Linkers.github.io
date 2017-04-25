@@ -98,48 +98,58 @@
 	</header>
 	
 	<div>
-         <form id="questionare" action="result.php" method="post" accept-charset="utf-8">
-         <p class="mad-libs">
-			I want to get a gift for 
+            <form id="questionare" action="result.php" method="post" accept-charset="utf-8">
+
+		<?php
+		$username = $_POST["username"];
+
+		echo "<input type='text' name='username' value=$username style='display:none'>
+
+		<h2>$username Please input your friend's info</h2>"
+		
+		?>
+		
+		<p class="mad-libs">
+		    I want to get a gift for 
 		    
-			<label>
-				<input type="text" name="name"/><span>name</span>
+		    <label>
+			<input type="text" name="name"/><span>name</span>
 		    </label>,who is my
 		    
-			<label>
-				<select name = "relationship">
-					<?php
-						if ($stmt = $mysqli->prepare("select distinct relationship from relation order by relationship asc")) {
-							$stmt->execute();
-							$stmt->bind_result($relationship);
-							while($stmt->fetch()) {
-								echo "<option value='$relationship'>$relationship</option>\n";	
-							}
-						}
-					?>
-				</select><span>relationship</span>
+		    <label>
+			<select name = "relationship">
+			    <?php
+			    if ($stmt = $mysqli->prepare("select distinct relationship from relation order by relationship asc")) {
+				$stmt->execute();
+				$stmt->bind_result($relationship);
+				while($stmt->fetch()) {
+				    echo "<option value='$relationship'>$relationship</option>\n";	
+				}
+			    }
+			    ?>
+			</select><span>relationship</span>
 		    </label> . My friend is a 
 		    
-			<label>
-				<select name = "gender">
-					<?php
-						if ($stmt = $mysqli->prepare("select distinct gender from sex order by gender asc")) {
-							$stmt->execute();
-							$stmt->bind_result($gender);
-							while($stmt->fetch()) {
-								echo "<option value='$gender'>$gender</option>\n";	
-							}
-						}
-					?>
-				</select> 
+		    <label>
+			<select name = "gender">
+			    <?php
+			    if ($stmt = $mysqli->prepare("select distinct gender from sex order by gender asc")) {
+				$stmt->execute();
+				$stmt->bind_result($gender);
+				while($stmt->fetch()) {
+				    echo "<option value='$gender'>$gender</option>\n";	
+				}
+			    }
+			    ?>
+			</select> 
 			<span>gender</span>
 		    </label> , aged
-		   
-		   <label>
-				<input type="number" name="age"/><span>age</span>
+		    
+		    <label>
+			<input type="number" name="age"/><span>age</span>
 		    </label> . Some of their hobbies are 
 		    
-			<label>
+		    <label>
 			<select name = "category">
 			    <?php
 			    if ($stmt = $mysqli->prepare("select distinct category from hobbies order by category asc")) {
@@ -153,13 +163,18 @@
 			</select> <span>hobbies</span>
 		    </label> . My budget is between
 		    
-			<label>
-				<input type="number" name="minprice"/><span>Min. Price</span>
+		    <label>
+			<input type="number" name="minprice"/><span>Min. Price</span>
 		    </label> and
 
 		    <label>
-				<input type="number" name="maxprice"/><span>Max. Price</span>
+			<input type="number" name="maxprice"/><span>Max. Price</span>
 		    </label>.
+
+		    <label>
+			<input type="text" name="dob"/><span>DOB(MM/DD/YYYY)</span>
+		    </label>.
+		    
 
 		</p>
 

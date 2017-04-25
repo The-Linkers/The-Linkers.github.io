@@ -69,35 +69,18 @@ include ("include.php");
 	</header>
 	
 	<div id = "userInfo">
-	    Hello <?php echo $_POST["username"]; ?>! The gift is for <?php echo $_POST["name"]; ?>, <?php echo $_POST["relationship"]; ?> of yours.
-	    Their gender: <?php echo $_POST["gender"]; ?>, age: <?php echo $_POST["age"]; ?>, and hobby: <?php echo $_POST["category"]; ?>.
-	    Your budget is between $<?php echo $_POST["minprice"] ?> to $<?php echo $_POST["maxprice"] ?>.
+		Hello! The gift is for <?php echo $_POST["name"]; ?>, <?php echo $_POST["relationship"]; ?> of yours.
+		Their gender: <?php echo $_POST["gender"]; ?>, age: <?php echo $_POST["age"]; ?>, and hobby: <?php echo $_POST["category"]; ?>.
+		Your budget is between $<?php echo $_POST["minprice"] ?> to $<?php echo $_POST["maxprice"] ?>.
 	</div>
 	<div class="row" style="padding-top:2%">
-            
+         	       
 	    <?php
-	    $username = $_POST["username"];
-
-	    $minPrice = $_POST["minprice"];
-	    $maxPrice =  $_POST["maxprice"];
-	    
+		
+		$minPrice = $_POST["minprice"];
+		$maxPrice =  $_POST["maxprice"];
+		
 	    $category = $_POST["category"];
-	    $name = $_POST["name"];
-	    $age = $_POST["age"];
-	    $gender = $_POST["gender"];
-	    $relationship = $_POST["relationship"];
-	    $dob = $_POST["dob"];
-	    
-	    if (strlen($username) > 0){
-		$query = "insert into recipient values($username, '$name', '$relationship', '$gender','$age', '$category', $minPrice, $maxPrice, '$dob')";
-
-		echo $query;
-		if ($stmt = $mysqli->prepare($query)) {
-		    $stmt->execute();
-
-		}
-	    }
-	    
 	    if ($stmt = $mysqli->prepare("select weight_name from hobbies where category = ?" )) {
 		$stmt->bind_param("s", $category);
 		$stmt->execute();
