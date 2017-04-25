@@ -96,7 +96,7 @@
 			</ul>
 	    </nav>
 	</header>
-	
+
 	<div>
             <form id="questionare" action="result.php" method="post" accept-charset="utf-8">
 

@@ -51,10 +51,22 @@ include ("include.php");
 	<header id="header" class="skel-layers-fixed">
 	    <h1><a href="index.html">Linkers</a></h1>
 	    <nav id="nav">
-			<ul>
-			    <li><a href="index.html">Home</a></li>
-			    <li> <a href="user.php">Friends</a></li>
-			    <li> <a href="questionare.php">Gift Suggestion</a></li>
+		<ul>
+		    <li><a href="index.html">Home</a></li>
+		    <?php
+		    $username = $_POST["username"];
+
+		    echo"
+
+                            <li>
+			    <form id='friends' action='friends.php' method='POST'>
+                                <input type='text' name='username' value=$username style='display:none'>
+				<input type='submit' style='' value='Friends'>
+                           </form>
+                           </li>
+                            "
+		    ?>
+		    <li> <a href="questionare.php">Gift Suggestion</a></li>
 			    <!-- <li><a href="#" id="signupBtn" class="button special">Sign Up</a></li>
 				 <div id="signup-modal" class="modal">
 				 <div class="modal-content">
