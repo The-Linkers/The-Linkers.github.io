@@ -19,23 +19,26 @@ include ("include.php");
 	    <link rel="stylesheet" href="css/skel.css" />
 	    <link rel="stylesheet" href="css/style.css" />
 	    <link rel="stylesheet" href="css/style-xlarge.css" />
-	    
 	</noscript>
 
 	<style>
-	 body
-	 {
+	 body{
 	     position: fixed; 
 	     overflow-y: scroll;
 	     width: 100%;
 	     padding-left: 5%; 
 	 }
 
-	 img
-	 {
+	 img{
 	     width: 200px;
 	     height: 150px;
 	     overflow: hidden;
+	 }
+	 
+	 #userInfo{
+		 text-align: center;
+		 margin-top: 5%;
+		 font-size: 18px;
 	 }
 	</style>
 	
@@ -49,9 +52,6 @@ include ("include.php");
 	    <nav id="nav">
 		<ul>
 		    <li><a href="index.html">Home</a></li>
-		    <!-- <li><a href="left-sidebar.html">Left Sidebar</a></li>
-			 <li><a href="right-sidebar.html">Right Sidebar</a></li>
-			 <li><a href="no-sidebar.html">No Sidebar</a></li> -->
 		    <li>
 			<a href="#" id="signupBtn" class="button special">Sign Up</a>
 		    </li>
@@ -72,11 +72,13 @@ include ("include.php");
 	    </nav>
 	</header>
 	
+	<div id = "userInfo">
+		Hello <?php echo $_POST["name"]; ?>!
+		The receiver is a <?php echo $_POST["relationship"]; ?> of yours.
+		Their gender: <?php echo $_POST["gender"]; ?>, age: <?php echo $_POST["age"]; ?>, and hobby: <?php echo $_POST["category"]; ?>.
+	</div>
 	<div class="row" style="padding-top:2%">
-            
-         Hello <?php echo $_POST["name"]; ?>!
-		 The receiver is a <?php echo $_POST["relationship"]; ?> of yours.
-		 Their gender: <?php echo $_POST["gender"]; ?>, age: <?php echo $_POST["age"]; ?>, and hobby: <?php echo $_POST["category"]; ?>.
+         
 	       
 	    <?php
 	    $category = $_POST["category"];
@@ -94,7 +96,7 @@ include ("include.php");
 		    $stmt->execute();
 		    $stmt->bind_result($giftcategory, $giftprice, $giftlink, $giftname, $giftpic);
 		    while($stmt->fetch()) {
-			echo "<div class='col-sm-4 col-lg-4 col-md-4' style='padding:0; top: 50%; margin-top: 100px;'>
+			echo "<div class='col-sm-4 col-lg-4 col-md-4' style='padding:0; top: 50%; margin-top: 3%;'>
 		    <img src='$giftpic'> <br>
 		    $giftname<br>
 		    Price : $giftprice.00 <br>
