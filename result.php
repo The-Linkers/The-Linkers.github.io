@@ -14,7 +14,7 @@ include ("include.php");
 	<script src="js/skel-layers.min.js"></script>
 	<script src="js/init.js"></script>
 	<script src="js/result-script.js"></script>
-	<script src="js/questionare.js"></script>
+	<script src="js/questionare.js"></script><!--shows the modal when sign up is clicked !-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	    	
 	<noscript>
 	    <link rel="stylesheet" href="css/skel.css" />
@@ -69,13 +69,17 @@ include ("include.php");
 	</header>
 	
 	<div id = "userInfo">
-		Hello! The gift is for <?php echo $_POST["name"]; ?>, a <?php echo $_POST["relationship"]; ?> of yours.
+		Hello! The gift is for <?php echo $_POST["name"]; ?>, <?php echo $_POST["relationship"]; ?> of yours.
 		Their gender: <?php echo $_POST["gender"]; ?>, age: <?php echo $_POST["age"]; ?>, and hobby: <?php echo $_POST["category"]; ?>.
+		Your budget is between $<?php echo $_POST["minprice"] ?> to $<?php echo $_POST["maxprice"] ?>.
 	</div>
 	<div class="row" style="padding-top:2%">
-         
-	       
+         	       
 	    <?php
+		
+		$minPrice = $_POST["minprice"];
+		$maxPrice =  $_POST["maxprice"];
+		
 	    $category = $_POST["category"];
 	    if ($stmt = $mysqli->prepare("select weight_name from hobbies where category = ?" )) {
 		$stmt->bind_param("s", $category);
@@ -85,7 +89,7 @@ include ("include.php");
 		    //echo $weightname;	
 		}
 
-		$query = "SELECT gifts.category, gifts.price, gifts.link, gifts.gname, gifts.gpic from gifts NATURAL JOIN weights ORDER BY weights.{$weightname} DESC LIMIT 3";
+		$query = "SELECT gifts.category, gifts.price, gifts.link, gifts.gname, gifts.gpic from gifts NATURAL JOIN weights WHERE price BETWEEN $minPrice AND $maxPrice ORDER BY weights.{$weightname} DESC LIMIT 3";
 		
 		if ($stmt = $mysqli->prepare($query)) {
 		    $stmt->execute();
