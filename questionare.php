@@ -14,7 +14,7 @@
 	<script src="js/skel.min.js"></script>
 	<script src="js/skel-layers.min.js"></script>
 	<script src="js/init.js"></script>
-		
+	<script src="js/questionare.js"></script>
 	<noscript>
 	    <link type="text/css" rel="stylesheet" href="css/form.css" />
 	</noscript>
@@ -79,30 +79,23 @@
 	<header id="header" class="skel-layers-fixed">
 	    <h1><a href="index.html">Linkers</a></h1>
 	    <nav id="nav">
-		<ul>
-		    <li><a href="index.html">Home</a></li>
-		    <!-- <li><a href="left-sidebar.html">Left Sidebar</a></li>
-			 <li><a href="right-sidebar.html">Right Sidebar</a></li>
-			 <li><a href="no-sidebar.html">No Sidebar</a></li> -->
-		    <li>
-			<a href="#" id="signupBtn" class="button special">Sign Up</a>
-		    </li>
-
-		    <div id="signup-modal" class="modal">
-
-			<div class="modal-content">
-			    <span class="close">&times;</span>
-			    <h2>Enter your email </h2>
-			    <form>
-				<input type="email" name="email" placeholder="Email"><br>
-				<input type="submit" class="button special" value="Submit">
-			    </form>
-			</div>
-		    </div>
-		    
-		</ul>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="#" id="signupBtn" class="button special">Sign Up</a></li>
+				<div id="signup-modal" class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<h2>Enter your email </h2>
+						<form style="padding-top:0px; padding-left:0px;">
+							<input type="email" name="email" placeholder="Email"><br>
+							<input type="submit" class="button special" value="Submit">
+						</form>
+					</div>
+				</div> 
+			</ul>
 	    </nav>
 	</header>
+	
 	<div>
          <form action="result.php" method="post" accept-charset="utf-8">
          <p class="mad-libs">
