@@ -5,71 +5,72 @@
 
 <html>
     <head>
-	<title>Linkers</title>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/skel.min.js"></script>
-	<script src="js/skel-layers.min.js"></script>
-	<script src="js/init.js"></script>
-	<script src="js/questionare.js"></script>
-	<noscript>
-	    <link type="text/css" rel="stylesheet" href="css/form.css" />
-	</noscript>
+		<title>Linkers</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="js/questionare.js"></script>
+		
+		<noscript>
+			<link type="text/css" rel="stylesheet" href="css\form.css" />
+		</noscript>
 
-	<style>
-	 body
-	 {
-	     position: fixed; 
-	     overflow-y: scroll;
-	     width: 100%;
-	 }
-	 
-	 input[type=number]::-webkit-inner-spin-button, 
-	 input[type=number]::-webkit-outer-spin-button { 
-	     -webkit-appearance: none; 
-	     margin: 0; 
-	 }
-	 input[type=number] {
-	     -moz-appearance:textfield;
-	 }
-	 
-	 form {
-	     padding-left: 20%;
-	     padding-top:10%;
-	 }
-	 
-	 .mad-libs {
-	     width:50%;
-	 }
-	 .mad-libs label {
-	     white-space: nowrap;
-	     padding: 0 0 .5em;
-	     
-	     display: -moz-inline-stack;
-	     display: inline-block;
-	     vertical-align: top;
-	     zoom: 1;
-	     *display: inline;
-	 }
-	 .mad-libs input {
-	     font: inherit;
-	     background: transparent;
-	     border: none;
-	     border-bottom: 1px solid #111;
-	     outline: 0;
-	     display: block;
-	 }
-	 .mad-libs label span {
-	     font-size: .8em;
-	     line-height: 1em;
-	     opacity: .7;
-	     filter: alpha(opacity = 70);
-	     padding-left:30%;
-	 }
-	</style>
+		<style>
+		 body{
+			 position: fixed; 
+			 overflow-y: scroll;
+			 width: 100%;
+		 }
+		 
+		 input[type=number]::-webkit-inner-spin-button, 
+		 input[type=number]::-webkit-outer-spin-button { 
+			 -webkit-appearance: none; 
+			 margin: 0; 
+		 }
+		 input[type=number] {
+			 -moz-appearance:textfield;
+		 }
+		 
+		 #questionare {
+			width:40%;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			margin-top:-150px; 
+			margin-left:-250px;
+		 }
+		 
+		 
+		 .mad-libs label {
+			 white-space: nowrap;
+			 padding: 0 0 .5em;
+			 
+			 display: -moz-inline-stack;
+			 display: inline-block;
+			 vertical-align: top;
+			 zoom: 1;
+			 *display: inline;
+		 }
+		 .mad-libs input {
+			 font: inherit;
+			 background: transparent;
+			 border: none;
+			 border-bottom: 1px solid #111;
+			 outline: 0;
+			 display: block;
+		 }
+		 .mad-libs label span {
+			 font-size: .8em;
+			 line-height: 1em;
+			 opacity: .7;
+			 filter: alpha(opacity = 70);
+			 padding-left:30%;
+		 }
+		</style>
 
     </head>
 
@@ -97,50 +98,48 @@
 	</header>
 	
 	<div>
-         <form action="result.php" method="post" accept-charset="utf-8">
+         <form id="questionare" action="result.php" method="post" accept-charset="utf-8">
          <p class="mad-libs">
-         I want to get a gift for 
-		    <label>
-			<input type="text" name="name" value="" />
-			<span>name</span>
-		    </label>,
-		    who is my
-		    <label>
-			<select name = "relationship">
-			    <?php
-					if ($stmt = $mysqli->prepare("select distinct relationship from relation order by relationship asc")) {
-						$stmt->execute();
-						$stmt->bind_result($relationship);
-						while($stmt->fetch()) {
-							echo "<option value='$relationship'>$relationship</option>\n";	
+			I want to get a gift for 
+		    
+			<label>
+				<input type="text" name="name"/><span>name</span>
+		    </label>,who is my
+		    
+			<label>
+				<select name = "relationship">
+					<?php
+						if ($stmt = $mysqli->prepare("select distinct relationship from relation order by relationship asc")) {
+							$stmt->execute();
+							$stmt->bind_result($relationship);
+							while($stmt->fetch()) {
+								echo "<option value='$relationship'>$relationship</option>\n";	
+							}
 						}
-					}
-				?>
-			</select> 
-			<span>relationship</span>
-		    </label><br>
-		    My friend is a 
-		    <label>
-		    <select name = "gender">
-			    <?php
-					if ($stmt = $mysqli->prepare("select distinct gender from sex order by gender asc")) {
-						$stmt->execute();
-						$stmt->bind_result($gender);
-						while($stmt->fetch()) {
-							echo "<option value='$gender'>$gender</option>\n";	
+					?>
+				</select><span>relationship</span>
+		    </label> . My friend is a 
+		    
+			<label>
+				<select name = "gender">
+					<?php
+						if ($stmt = $mysqli->prepare("select distinct gender from sex order by gender asc")) {
+							$stmt->execute();
+							$stmt->bind_result($gender);
+							while($stmt->fetch()) {
+								echo "<option value='$gender'>$gender</option>\n";	
+							}
 						}
-					}
-				?>
-			</select> 
+					?>
+				</select> 
 			<span>gender</span>
-		    </label>
-		    , aged
-		    <label>
-			<input type="number" name="age" value="" />
-			<span>age</span>
-		    </label>. <br>
-		    Some of the hobbies are 
-		    <label>
+		    </label> , aged
+		   
+		   <label>
+				<input type="number" name="age"/><span>age</span>
+		    </label> . Some of their hobbies are 
+		    
+			<label>
 			<select name = "category">
 			    <?php
 			    if ($stmt = $mysqli->prepare("select distinct category from hobbies order by category asc")) {
@@ -151,24 +150,19 @@
 				}
 			    }
 			    ?>
-			</select> 
-			<span>hobbies</span>
-		    </label><br>
-
-		    My budget is
-		    <label>
-			<input type="number" name="minprice" />
-			<span>Min. Price</span>
-		    </label>
+			</select> <span>hobbies</span>
+		    </label> . My budget is between
+		    
+			<label>
+				<input type="number" name="minprice"/><span>Min. Price</span>
+		    </label> and
 
 		    <label>
-			<input type="number" name="maxprice" />
-			<span>Max Price</span>
-		    </label>
+				<input type="number" name="maxprice"/><span>Max. Price</span>
+		    </label>.
 
 		</p>
-		
-         <!--<p> <a class="button special" href="result.php" value="submit"> Submit</a></p> -->
+
 		<p> <input class="button special" value="Submit "type="submit"></p>
 		
          </form>

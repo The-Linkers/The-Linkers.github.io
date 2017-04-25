@@ -12,6 +12,7 @@
     zoom: 1;
     *display: inline;
 }
+
 .mad-libs input {
     font: inherit;
     background: transparent;
@@ -20,6 +21,7 @@
     outline: 0;
     display: block;
 }
+
 .mad-libs label span {
     font-size: .8em;
     line-height: 1em;
