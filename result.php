@@ -74,12 +74,10 @@ include ("include.php");
 	
 	<div class="row" style="padding-top:2%">
             
-            <!-- Hello <?php echo $_POST["name"]; ?>!<br>
-		 Our relationship is <?php echo $_POST["relationship"]; ?>.
-		 The gender  is <?php echo $_POST["gender"]; ?>.
-		 Our age is <?php echo $_POST["age"]; ?>.
-		 Favorite hobby is <?php echo $_POST["category"]; ?>.
-	       -->
+         Hello <?php echo $_POST["name"]; ?>!
+		 The receiver is a <?php echo $_POST["relationship"]; ?> of yours.
+		 Their gender: <?php echo $_POST["gender"]; ?>, age: <?php echo $_POST["age"]; ?>, and hobby: <?php echo $_POST["category"]; ?>.
+	       
 	    <?php
 	    $category = $_POST["category"];
 	    if ($stmt = $mysqli->prepare("select weight_name from hobbies where category = ?" )) {
@@ -90,26 +88,26 @@ include ("include.php");
 		    //echo $weightname;	
 		}
 
-		$query = "SELECT gifts.category, gifts.price, gifts.link, gifts.gname, gifts.gpic from gifts NATURAL JOIN weights ORDER BY weights.{$weightname} DESC LIMIT 10";
+		$query = "SELECT gifts.category, gifts.price, gifts.link, gifts.gname, gifts.gpic from gifts NATURAL JOIN weights ORDER BY weights.{$weightname} DESC LIMIT 3";
 		
 		if ($stmt = $mysqli->prepare($query)) {
 		    $stmt->execute();
 		    $stmt->bind_result($giftcategory, $giftprice, $giftlink, $giftname, $giftpic);
 		    while($stmt->fetch()) {
-			echo "<div class='col-sm-4 col-lg-4 col-md-4'>
+			echo "<div class='col-sm-4 col-lg-4 col-md-4' style='padding:0; top: 50%; margin-top: 100px;'>
 		    <img src='$giftpic'> <br>
 		    $giftname<br>
-		    Price : $giftprice <br>
+		    Price : $giftprice.00 <br>
 		    <a href=$giftlink type= 'submit' class='button special'  target='_blank'> Buy here </a>
+			</br>
+			<input type='image' src='images/thumbUp.jpg' onclick='calc1()' style='width:42px;height:42px;border:0; margin-top: 10px; margin-left: 20px;'/>
+			<input type='image' src='images/thumbDown.jpg' onclick='calc2()' style='width:42px;height:42px;border:0'; margin-top: 10px;/>
+			<div id='feedback'></div>
 		    </div>";
 		    }
 		}
 	    }
-	    ?>		    
-	    <input type="image" src="images/thumbUp.jpg" onclick="calc1()" style="width:42px;height:42px;border:0"/>
-		<input type="image" src="images/thumbDown.jpg" onclick="calc2()" style="width:42px;height:42px;border:0"/>
-		<div id="feedback"></div>
-	    
+	    ?>		    	    
 	</div>
 	
     </body>	
