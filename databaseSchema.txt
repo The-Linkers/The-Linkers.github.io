@@ -1,7 +1,16 @@
+-- Database schema
 -- HOBBIES
 create table hobbies(
 	category varchar(30),
 	PRIMARY KEY (category)
+);
+
+
+
+-- RELATION
+create table relation(
+	relationship varchar(50),
+	PRIMARY KEY (relationship)
 );
 
 -- GIFTS
@@ -12,12 +21,6 @@ create table gifts(
 	link varchar(255),
 	PRIMARY KEY (gid),
 	FOREIGN KEY (category) REFERENCES hobbies(category)
-);
-
--- RELATION
-create table relation(
-	relationship varchar(50),
-	PRIMARY KEY (relationship)
 );
 
 -- GENDER
