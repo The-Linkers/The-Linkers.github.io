@@ -88,9 +88,18 @@ include ("include.php");
 		}
 
 		if(isset($_GET["gid"])) {
-		    $gid = $_GET["gid"];
-		    $updatequery = "update weights set $weightname = $weightname - 1 where gid= $gid and $weightname > 0;";
 		    
+		    $gid = $_GET["gid"];
+		    $rate = $_GET["tag"];
+
+		    $updatequery;
+		    
+		    if ($rate == "up"){
+			$updatequery = "update weights set $weightname = $weightname + 1 where gid= $gid and $weightname > 0;";
+		    }
+		    else{
+			$updatequery = "update weights set $weightname = $weightname - 1 where gid= $gid and $weightname > 0;";
+		    }
 		    if ($stmt = $mysqli->prepare($updatequery)) {
 			$stmt->execute();
 			while($stmt->fetch()) {
@@ -130,13 +139,19 @@ include ("include.php");
 	 console.log('Thumbs Up clicked');
 	 console.log(event.value);
 	 
-	 window.location.href = "result.php?gid=" + event.value + "&name=" + <?php echo $_GET["name"]; ?> + "&relationship=" + '<?php echo $_GET["relationship"]; ?>' +  "&gender=" + '<?php echo $_GET["gender"]; ?>' +  "&age=" + '<?php echo $_GET["age"]; ?>'  +  "&category=" + '<?php echo $_GET["category"]; ?>'  + "&minprice=" + '<?php echo $_GET["minprice"] ?>' + "&maxprice=" + '<?php echo $_GET["maxprice"] ?>'; 
+	 window.location.href = "result.php?tag=up&gid=" + event.value + "&name=" + '<?php echo $_GET["name"]; ?>' + "&relationship=" + '<?php echo $_GET["relationship"]; ?>' +  "&gender=" + '<?php echo $_GET["gender"]; ?>' +  "&age=" + '<?php echo $_GET["age"]; ?>'  +  "&category=" + '<?php echo $_GET["category"]; ?>'  + "&minprice=" + '<?php echo $_GET["minprice"] ?>' + "&maxprice=" + '<?php echo $_GET["maxprice"] ?>'; 
      }
 
      function calc2(event){
-	 console.log('Thumbs Up clicked');
-
+	 console.log(event.value);
+	 
+	 window.location.href = "result.php?tag=down&gid=" + event.value + "&name=" + '<?php echo $_GET["name"]; ?>' + "&relationship=" + '<?php echo $_GET["relationship"]; ?>' +  "&gender=" + '<?php echo $_GET["gender"]; ?>' +  "&age=" + '<?php echo $_GET["age"]; ?>'  +  "&category=" + '<?php echo $_GET["category"]; ?>'  + "&minprice=" + '<?php echo $_GET["minprice"] ?>' + "&maxprice=" + '<?php echo $_GET["maxprice"] ?>'; 
+     	 console.log('Thumbs Down clicked');
+	 
      }
+
+     
+     
     </script>
     
 </html>
