@@ -13,7 +13,6 @@ include ("include.php");
 	<script src="js/skel.min.js"></script>
 	<script src="js/skel-layers.min.js"></script>
 	<script src="js/init.js"></script>
-	<script src="js/result-script.js"></script>
 	<script src="js/questionare.js"></script><!--shows the modal when sign up is clicked !-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	    	
 	<noscript>
@@ -69,31 +68,43 @@ include ("include.php");
 	</header>
 	
 	<div id = "userInfo">
-		Hello! The gift is for <?php echo $_POST["name"]; ?>, <?php echo $_POST["relationship"]; ?> of yours.
-		Their gender: <?php echo $_POST["gender"]; ?>, age: <?php echo $_POST["age"]; ?>, and hobby: <?php echo $_POST["category"]; ?>.
-		Your budget is between $<?php echo $_POST["minprice"] ?> to $<?php echo $_POST["maxprice"] ?>.
+	    Hello! The gift is for <?php echo $_GET["name"]; ?>, <?php echo $_GET["relationship"]; ?> of yours.
+	    Their gender: <?php echo $_GET["gender"]; ?>, age: <?php echo $_GET["age"]; ?>, and hobby: <?php echo $_GET["category"]; ?>.
+	    Your budget is between $<?php echo $_GET["minprice"] ?> to $<?php echo $_GET["maxprice"] ?>.
 	</div>
 	<div class="row" style="padding-top:2%">
-         	       
+            
 	    <?php
-		
-		$minPrice = $_POST["minprice"];
-		$maxPrice =  $_POST["maxprice"];
-		
-	    $category = $_POST["category"];
+	    $minPrice = $_GET["minprice"];
+	    $maxPrice =  $_GET["maxprice"];
+
+	    $category = $_GET["category"];
 	    if ($stmt = $mysqli->prepare("select weight_name from hobbies where category = ?" )) {
 		$stmt->bind_param("s", $category);
 		$stmt->execute();
 		$stmt->bind_result($weightname);
 		while($stmt->fetch()) {
-		    //echo $weightname;	
+		    /* echo $weightname;	*/
 		}
 
-		$query = "SELECT gifts.category, gifts.price, gifts.link, gifts.gname, gifts.gpic from gifts NATURAL JOIN weights WHERE price BETWEEN $minPrice AND $maxPrice ORDER BY weights.{$weightname} DESC LIMIT 3";
+		if(isset($_GET["gid"])) {
+		    $gid = $_GET["gid"];
+		    $updatequery = "update weights set $weightname = $weightname - 1 where gid= $gid and $weightname > 0;";
+		    
+		    if ($stmt = $mysqli->prepare($updatequery)) {
+			$stmt->execute();
+			while($stmt->fetch()) {
+			    
+			}
+
+		    }	
+		}
+		
+		$query = "SELECT gifts.gid,gifts.category, gifts.price, gifts.link, gifts.gname, gifts.gpic from gifts NATURAL JOIN weights WHERE price BETWEEN $minPrice AND $maxPrice ORDER BY weights.{$weightname} DESC LIMIT 3";
 		
 		if ($stmt = $mysqli->prepare($query)) {
 		    $stmt->execute();
-		    $stmt->bind_result($giftcategory, $giftprice, $giftlink, $giftname, $giftpic);
+		    $stmt->bind_result($gid,$giftcategory, $giftprice, $giftlink, $giftname, $giftpic);
 		    while($stmt->fetch()) {
 			echo "<div class='col-sm-4 col-lg-4 col-md-4' style='padding:0; top: 50%; margin-top: 3%;'>
 		    <img src='$giftpic'> <br>
@@ -101,8 +112,8 @@ include ("include.php");
 		    Price : $giftprice.00 <br>
 		    <a href=$giftlink type= 'submit' class='button special'  target='_blank'> Buy here </a>
 			</br>
-			<input type='image' src='images/thumbUp.jpg' onclick='calc1()' style='width:42px;height:42px;border:0; margin-top: 10px; margin-left: 20px;'/>
-			<input type='image' src='images/thumbDown.jpg' onclick='calc2()' style='width:42px;height:42px;border:0'; margin-top: 10px;/>
+			<input type='image' value=$gid src='images/thumbUp.jpg' onclick='calc1(this)' style='width:42px;height:42px;border:0; margin-top: 10px; margin-left: 20px;'/>
+			<input type='image' value=$gid src='images/thumbDown.jpg' onclick='calc2(this)' style='width:42px;height:42px;border:0'; margin-top: 10px;/>
 			<div id='feedback'></div>
 		    </div>";
 		    }
@@ -111,5 +122,21 @@ include ("include.php");
 	    ?>		    	    
 	</div>
 	
-    </body>	
+    </body>
+    <script>
+
+     
+     function calc1(event){
+	 console.log('Thumbs Up clicked');
+	 console.log(event.value);
+	 
+	 window.location.href = "result.php?gid=" + event.value + "&name=" + <?php echo $_GET["name"]; ?> + "&relationship=" + '<?php echo $_GET["relationship"]; ?>' +  "&gender=" + '<?php echo $_GET["gender"]; ?>' +  "&age=" + '<?php echo $_GET["age"]; ?>'  +  "&category=" + '<?php echo $_GET["category"]; ?>'  + "&minprice=" + '<?php echo $_GET["minprice"] ?>' + "&maxprice=" + '<?php echo $_GET["maxprice"] ?>'; 
+     }
+
+     function calc2(event){
+	 console.log('Thumbs Up clicked');
+
+     }
+    </script>
+    
 </html>
